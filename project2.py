@@ -34,7 +34,7 @@ while user_input != 'y':
   if user_input == "y": #When user input is y, the rest of the if statements will execute.
       burger = BuildaBurger("Your Burger") #create an object
       bun_input = input("Would you like a bun? y or n: ")
-      
+
       #These 5 nested if statements will prompt the user to add whast they want on their burger.
       if bun_input != 'n':
         burger.add_ingredient("Bun")
@@ -50,7 +50,7 @@ while user_input != 'y':
       patty_input = input("Would you like to add a burger patty? y or n: ")
       if patty_input != 'n':
         burger.add_ingredient("Burger Patty")      
-      
+
       burger.print_ingredients() #print a list of what the customer wanted on their burger.
   elif user_input == "n":
     # This condition will loop back to prompt the next customer to customize their burger.
@@ -63,3 +63,17 @@ outputfile = open('Burgerfile', 'w')
 
 with open ('Burgerfile', "w") as outputfile:
   outputfile.write(burger.print_ingredients().__str__())
+
+
+#Tests for that are intended to either break or prove the Buildaburger class works.
+# As of 10/11/2023 There is an usse with the ingredient questions.
+# There is no input validation when anyting is entered other thatn 'n'.
+#That means a complete burger ingredient list will be printed when the user enters bogus input after they answer 'y' to the first question.
+
+
+#This test is a negative test. It breaks the program when the user successfully creats their burger list.
+# while True: #Use an infinite loop
+#   if user_input == True: # Only after the first question is answered as y will this loop cause a crash.
+#   # Once the list is completed we can't rerun the program without a keyboardinterrupt.
+#     x = 2
+#     print(x)

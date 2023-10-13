@@ -69,11 +69,12 @@ with open ('Burgerfile', "w") as outputfile:
 # As of 10/11/2023 There is an usse with the ingredient questions.
 # There is no input validation when anyting is entered other thatn 'n'.
 #That means a complete burger ingredient list will be printed when the user enters bogus input after they answer 'y' to the first question.
-
+print(f"userinput: {user_input}")
+print(f"userinput {user_input == True}")
 
 #This test is a negative test. It breaks the program when the user successfully creats their burger list.
-# while True: #Use an infinite loop
-#   if user_input == True: # Only after the first question is answered as y will this loop cause a crash.
-#   # Once the list is completed we can't rerun the program without a keyboardinterrupt.
-#     x = 2
-#     print(x)
+while True: #Use an infinite loop
+  if user_input == False: # Only after the first question is answered as y will this loop cause a crash.
+  # Once the list is completed we can't rerun the program without a keyboardinterrupt.
+    x = 2
+    print(x)

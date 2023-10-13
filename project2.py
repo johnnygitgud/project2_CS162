@@ -38,6 +38,7 @@ while user_input != 'y':
       #These 5 nested if statements will prompt the user to add whast they want on their burger.
       if bun_input != 'n':
         burger.add_ingredient("Bun")
+        #print(burger.add_ingredient) #This confirms the memory address for where the ingredient is being stored.
       lettuce_input = input("Would you like lettuce? y or n: ")
       if lettuce_input != 'n':
         burger.add_ingredient("Lettuce")
@@ -51,7 +52,7 @@ while user_input != 'y':
       if patty_input != 'n':
         burger.add_ingredient("Burger Patty")      
 
-      burger.print_ingredients() #print a list of what the customer wanted on their burger.
+      #burger.print_ingredients() # Test print a list of what the customer wanted on their burger.
   elif user_input == "n":
     # This condition will loop back to prompt the next customer to customize their burger.
     print("Thank you for stopping buy!\n" "May I help the next guest?")
@@ -59,22 +60,30 @@ while user_input != 'y':
       #this condition is for error check if the user enters the wrong character.
       print("Please type y for yes or n for no")
 
+# Code for writing the list to a file called Burgerfile
+# Issue with this code is that each time we run the program it overwrites the previous list/
 outputfile = open('Burgerfile', 'w')
 
 with open ('Burgerfile', "w") as outputfile:
   outputfile.write(burger.print_ingredients().__str__())
+  outputfile.write("\n")
+
 
 
 #Tests for that are intended to either break or prove the Buildaburger class works.
 # As of 10/11/2023 There is an usse with the ingredient questions.
 # There is no input validation when anyting is entered other thatn 'n'.
 #That means a complete burger ingredient list will be printed when the user enters bogus input after they answer 'y' to the first question.
-print(f"userinput: {user_input}")
-print(f"userinput {user_input == True}")
+
 
 #This test is a negative test. It breaks the program when the user successfully creats their burger list.
-while True: #Use an infinite loop
-  if user_input == False: # Only after the first question is answered as y will this loop cause a crash.
-  # Once the list is completed we can't rerun the program without a keyboardinterrupt.
-    x = 2
-    print(x)
+# print(f"userinput: {user_input}")
+# print(f"userinput {user_input == True}")
+# while True: #Use an infinite loop
+#   if user_input == True: # Only after the first question is answered as y will this loop cause a crash.
+#   # Once the list is completed we can't rerun the program without a keyboardinterrupt.
+#   # From my under it doesn't matter when user input is set to true or false in lines 77 and 79.
+#   #This is a contradiction because it is true that the user is entering y. But its not being evaluated that way.
+#   # This is probably because userinput was never initialized to a boolean data type.
+#     x = 2
+#     print(x)
